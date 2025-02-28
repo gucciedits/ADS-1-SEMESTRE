@@ -1,3 +1,2 @@
-Projeto A3 Usabilidade desenvolvimento web mobile e jogos
+GUCCI SEM NADA PRA FAZER
 
-Integrantes dos grupos: Pedro Murilo Pereira - Matrícula: 122221957
