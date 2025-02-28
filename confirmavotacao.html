@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,17 +10,14 @@
             text-align: center;
             background-color: #f4f4f4;
         }
-
         .container {
             margin-top: 50px;
         }
-
         .name {
             font-size: 22px;
             font-weight: bold;
             margin-top: 10px;
         }
-
         .confirm-btn,
         .back-btn {
             background-color: #4CAF50;
@@ -32,29 +28,24 @@
             cursor: pointer;
             margin: 10px;
         }
-
         .confirm-btn:hover,
         .back-btn:hover {
             background-color: #45a049;
         }
-
         .back-btn {
             background-color: #f44336;
         }
-
         .back-btn:hover {
             background-color: #e53935;
         }
     </style>
 </head>
-
 <body>
     <h1>Confirmação de Voto</h1>
     <div class="container">
         <img id="candidate-image" style="max-width: 200px; border-radius: 10px;" alt="Candidato">
         <div class="name" id="candidate-name"></div>
         <div id="candidate-description" class="description"></div>
-
         <div>
             <button class="confirm-btn" onclick="confirmChoice()">Sim, esse é o candidato</button>
             <button class="back-btn" onclick="goBack()">Não, voltar à votação</button>
@@ -85,8 +76,9 @@
 
         function confirmChoice() {
             const params = getQueryParams();
-            const votos = JSON.parse(localStorage.getItem('votos')) || [0, 0, 0, 0];
-            const index = ['Luana', 'Guilherme'].indexOf(params.name);
+            const votos = JSON.parse(localStorage.getItem('votos')) || [0, 0];
+            const candidates = ['Luana', 'Guilherme'];
+            const index = candidates.indexOf(params.name);
 
             if (index !== -1) {
                 votos[index] += 1;
@@ -103,5 +95,4 @@
         window.onload = populateCandidateDetails;
     </script>
 </body>
-
 </html>
