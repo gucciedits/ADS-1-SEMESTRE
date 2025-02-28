@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votação</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .person {
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 200px;
+        }
+
+        .person img {
+            width: 100%;
+            border-radius: 50%;
+        }
+
+        .name {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .description {
+            font-size: 14px;
+            color: #555;
+            margin: 10px 0;
+        }
+
+        .vote-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .vote-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Votação</h1>
+    <div class="container">
+        <div class="person">
+            <img src="https://imgur.com/3F5LkJG.png" alt="João Silva">
+            <div class="name">João Silva</div>
+            <div class="description">Ex-governador, João é conhecido por sua habilidade em gestão pública e seu foco em
+                políticas econômicas.</div>
+            <button class="vote-btn" onclick="confirmVote('João Silva')">Votar</button>
+        </div>
+        <div class="person">
+            <img src="https://imgur.com/lxFhODP.png" alt="Maria Soares">
+            <div class="name">Maria Soares</div>
+            <div class="description">Economista e ex-ministra das Finanças, Maria é uma defensora da igualdade de gênero
+                e das políticas de inclusão social.</div>
+            <button class="vote-btn" onclick="confirmVote('Maria Soares')">Votar</button>
+        </div>
+        <div class="person">
+            <img src="https://imgur.com/ykSVmkk.png" alt="Carlos Pereira">
+            <div class="name">Carlos Pereira</div>
+            <div class="description">Advogado e ex-deputado, Carlos é um político tradicional que promete fortalecer a
+                segurança pública e combater a corrupção.</div>
+            <button class="vote-btn" onclick="confirmVote('Carlos Pereira')">Votar</button>
+        </div>
+        <div class="person">
+            <img src="https://imgur.com/tawRrUw.png" alt="Fernando Almeida">
+            <div class="name">Fernando Almeida</div>
+            <div class="description">Empresário do setor de tecnologia, Fernando é uma nova cara na política e defende a
+                modernização do governo.</div>
+            <button class="vote-btn" onclick="confirmVote('Fernando Almeida')">Votar</button>
+        </div>
+    </div>
+
+    <script>
+        function confirmVote(candidate) {
+            // Redirecionar para a página de confirmação com os dados do candidato
+            window.location.href = `confirmavotacao.html?name=${encodeURIComponent(candidate)}`;
+        }
+    </script>
+
+</body>
+
+</html>
