@@ -32,25 +32,25 @@
     <div class="container">
         <h1>Resultados Parciais de Votação 2024</h1>
         <canvas id="votingResults"></canvas>
-        <button onclick="goBack()">Voltar para a Votação</button>
+        <button onclick="goToHome()">Voltar para a Página Inicial</button>
     </div>
 
     <script>
         const candidatos = ['Luana', 'Guilherme'];
 
         function getVotes() {
-    try {
-        const votos = JSON.parse(localStorage.getItem('votos'));
-        if (Array.isArray(votos) && votos.length === candidatos.length) {
-            return votos;
-        } else {
-            return [0, 0, 0, 0]; // Retorna valores padrão
+            try {
+                const votos = JSON.parse(localStorage.getItem('votos'));
+                if (Array.isArray(votos) && votos.length === candidatos.length) {
+                    return votos;
+                } else {
+                    return [0, 0]; // Retorna valores padrão
+                }
+            } catch (error) {
+                console.error('Erro ao carregar votos do localStorage:', error);
+                return [0, 0];
+            }
         }
-    } catch (error) {
-        console.error('Erro ao carregar votos do localStorage:', error);
-        return [0, 0, 0, 0];
-    }
-}
 
         function renderChart() {
             const votos = getVotes();
@@ -66,14 +66,10 @@
                         backgroundColor: [
                             'rgba(75, 192, 192, 0.2)',
                             'rgba(153, 102, 255, 0.2)',
-                            'rgba(255, 159, 64, 0.2)',
-                            'rgba(255, 99, 132, 0.2)',
                         ],
                         borderColor: [
                             'rgba(75, 192, 192, 1)',
                             'rgba(153, 102, 255, 1)',
-                            'rgba(255, 159, 64, 1)',
-                            'rgba(255, 99, 132, 1)',
                         ],
                         borderWidth: 1
                     }]
@@ -88,8 +84,8 @@
             });
         }
 
-        function goBack() {
-            window.location.href = "votacao.html";
+        function goToHome() {
+            window.location.href = "index.html"; // Redireciona para a página inicial
         }
 
         document.addEventListener('DOMContentLoaded', renderChart);
