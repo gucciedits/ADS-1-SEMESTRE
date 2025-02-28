@@ -65,39 +65,41 @@
     <h1>Votação</h1>
     <div class="container">
         <div class="person">
-            <img src="https://imgur.com/3F5LkJG.png" alt="João Silva">
-            <div class="name">João Silva</div>
-            <div class="description">Ex-governador, João é conhecido por sua habilidade em gestão pública e seu foco em
-                políticas econômicas.</div>
-            <button class="vote-btn" onclick="confirmVote('João Silva')">Votar</button>
+            <img src="https://imgur.com/03oYKwz.png" alt="Luana">
+            <div class="name">Luana</div>
+            <div class="description">.</div>
+            <button class="vote-btn" onclick="confirmVote('Luana')">Votar</button>
         </div>
         <div class="person">
-            <img src="https://imgur.com/lxFhODP.png" alt="Maria Soares">
-            <div class="name">Maria Soares</div>
-            <div class="description">Economista e ex-ministra das Finanças, Maria é uma defensora da igualdade de gênero
-                e das políticas de inclusão social.</div>
-            <button class="vote-btn" onclick="confirmVote('Maria Soares')">Votar</button>
-        </div>
-        <div class="person">
-            <img src="https://imgur.com/ykSVmkk.png" alt="Carlos Pereira">
-            <div class="name">Carlos Pereira</div>
-            <div class="description">Advogado e ex-deputado, Carlos é um político tradicional que promete fortalecer a
-                segurança pública e combater a corrupção.</div>
-            <button class="vote-btn" onclick="confirmVote('Carlos Pereira')">Votar</button>
-        </div>
-        <div class="person">
-            <img src="https://imgur.com/tawRrUw.png" alt="Fernando Almeida">
-            <div class="name">Fernando Almeida</div>
-            <div class="description">Empresário do setor de tecnologia, Fernando é uma nova cara na política e defende a
-                modernização do governo.</div>
-            <button class="vote-btn" onclick="confirmVote('Fernando Almeida')">Votar</button>
+            <img src="https://imgur.com/TbIZya7.png" alt="Guilherme">
+            <div class="name">Guilherme</div>
+            <div class="description">.</div>
+            <button class="vote-btn" onclick="confirmVote('Guilherme')">Votar</button>
         </div>
     </div>
 
     <script>
-        function confirmVote(candidate) {
-            // Redirecionar para a página de confirmação com os dados do candidato
-            window.location.href = `confirmavotacao.html?name=${encodeURIComponent(candidate)}`;
+        const candidates = [
+            {
+                name: "Luana",
+                image: "https://imgur.com/03oYKwz.png",
+                description: "."
+            },
+            {
+                name: "Guilherme",
+                image: "https://imgur.com/TbIZya7.png",
+                description: "."
+            }
+        ];
+
+        function confirmVote(candidateName) {
+            const candidate = candidates.find(c => c.name === candidateName);
+            if (candidate) {
+                // Passando todos os parâmetros necessários para a página de confirmação
+                window.location.href = `confirmavotacao.html?name=${encodeURIComponent(candidate.name)}&image=${encodeURIComponent(candidate.image)}&description=${encodeURIComponent(candidate.description)}`;
+            } else {
+                alert('Dados do candidato não encontrados. Retornando à votação.');
+            }
         }
     </script>
 

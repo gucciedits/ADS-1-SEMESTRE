@@ -72,22 +72,21 @@
         }
 
         function populateCandidateDetails() {
-    const params = getQueryParams();
-    if (params.name && params.image && params.description) {
-        document.getElementById('candidate-name').textContent = params.name;
-        document.getElementById('candidate-image').src = params.image;
-        document.getElementById('candidate-description').textContent = params.description;
-    } else {
-        alert('Dados do candidato não encontrados. Retornando à votação.');
-        goBack();
-    }
-}
-
+            const params = getQueryParams();
+            if (params.name && params.image && params.description) {
+                document.getElementById('candidate-name').textContent = params.name;
+                document.getElementById('candidate-image').src = params.image;
+                document.getElementById('candidate-description').textContent = params.description;
+            } else {
+                alert('Dados do candidato não encontrados. Retornando à votação.');
+                goBack();
+            }
+        }
 
         function confirmChoice() {
             const params = getQueryParams();
             const votos = JSON.parse(localStorage.getItem('votos')) || [0, 0, 0, 0];
-            const index = ['João Silva', 'Maria Soares', 'Carlos Pereira', 'Fernando Almeida'].indexOf(params.name);
+            const index = ['Luana', 'Guilherme'].indexOf(params.name);
 
             if (index !== -1) {
                 votos[index] += 1;
